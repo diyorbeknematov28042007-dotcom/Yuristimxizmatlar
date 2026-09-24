@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#00875A" />
+  <title>Aliment kalkulyatori | Yuristim Xizmatlar</title>
+  <meta name="description" content="O‘zbekiston Oila kodeksi asosida voyaga yetmagan bolalar uchun aliment miqdorini bepul va ro‘yxatdan o‘tmasdan taxminiy hisoblang." />
+  <link rel="canonical" href="https://xizmatlar.yuristim.uz/aliment" />
+  <meta property="og:title" content="Aliment kalkulyatori — Yuristim Xizmatlar" />
+  <meta property="og:description" content="Oila kodeksining 99-moddasi asosida taxminiy aliment hisob-kitobi." />
+  <meta property="og:url" content="https://xizmatlar.yuristim.uz/aliment" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/aliment.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Bir bola uchun aliment qancha?","acceptedAnswer":{"@type":"Answer","text":"Umumiy qoida bo‘yicha oylik ish haqi va boshqa daromadning 1/4 qismi. Har bir bola uchun miqdor MHTEKMning 26,5 foizidan kam bo‘lmasligi kerak."}},
+      {"@type":"Question","name":"Ikki bola uchun aliment qancha?","acceptedAnswer":{"@type":"Answer","text":"Umumiy qoida bo‘yicha oylik ish haqi va boshqa daromadning 1/3 qismi."}},
+      {"@type":"Question","name":"Uch yoki undan ortiq bola uchun aliment qancha?","acceptedAnswer":{"@type":"Answer","text":"Umumiy qoida bo‘yicha oylik ish haqi va boshqa daromadning 1/2 qismi."}},
+      {"@type":"Question","name":"Rasmiy ish joyi bo‘lmasa nima bo‘ladi?","acceptedAnswer":{"@type":"Answer","text":"Daromad doimiy bo‘lmasa, natura yoki chet el valyutasida olinsa yoxud rasmiy daromad bo‘lmasa, sud alimentni har oy to‘lanadigan qat’iy summada belgilashi mumkin."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Yuristim Xizmatlar bosh sahifasi">
+      <span class="brand-mark">Y</span><span><b>Yuristim</b><small>Xizmatlar</small></span>
+    </a>
+    <a class="header-link" href="https://yuristim.uz">Yuristimga o‘tish <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="page-wrap">
+    <section class="hero">
+      <div class="eyebrow"><span></span> O‘zbekiston qonunchiligi asosida</div>
+      <h1>Aliment <em>kalkulyatori</em></h1>
+      <p>Voyaga yetmagan bolalar uchun oylik aliment miqdorini bir necha soniyada taxminiy hisoblang. Hech qanday ro‘yxatdan o‘tish talab qilinmaydi.</p>
+      <div class="hero-meta"><span>✓ Bepul</span><span>✓ Ma’lumot saqlanmaydi</span><span>✓ 2026-yil sentabr holatiga</span></div>
+    </section>
+
+    <section class="calculator-shell" aria-labelledby="calculator-title">
+      <div class="calculator-card">
+        <div class="card-kicker">Bepul • Ro‘yxatdan o‘tishsiz</div>
+        <h2 id="calculator-title">Alimentni hisoblang</h2>
+        <p class="card-lead">Oila kodeksining 99-moddasidagi umumiy qoida asosida taxminiy oylik miqdor.</p>
+
+        <form id="aliment-form" class="calculator-form">
+          <label class="field">
+            <span>Aliment to‘lovchining oylik jami daromadi</span>
+            <div class="money-input">
+              <input id="income" inputmode="numeric" autocomplete="off" value="5 000 000" aria-describedby="income-help" placeholder="5 000 000" />
+              <span>so‘m</span>
+            </div>
+            <small id="income-help">Ish haqi va boshqa daromadlarni jami kiriting.</small>
+          </label>
+
+          <div class="preset-row" aria-label="Daromad namunalar">
+            <button type="button" class="preset" data-income="3000000">3 mln</button>
+            <button type="button" class="preset" data-income="5000000">5 mln</button>
+            <button type="button" class="preset" data-income="8000000">8 mln</button>
+            <button type="button" class="preset" data-income="12000000">12 mln</button>
+          </div>
+
+          <fieldset class="field fieldset-reset">
+            <legend>Voyaga yetmagan bolalar soni</legend>
+            <div class="stepper" aria-label="Bolalar soni">
+              <button id="child-minus" type="button" aria-label="Bolalar sonini kamaytirish">−</button>
+              <div><strong id="child-count">1</strong><span>bola</span></div>
+              <button id="child-plus" type="button" aria-label="Bolalar sonini oshirish">+</button>
+            </div>
+            <small>3 va undan ortiq bola uchun ulush — jami daromadning 1/2 qismi. Minimum har bir bola uchun alohida hisoblanadi.</small>
+          </fieldset>
+
+          <fieldset class="field fieldset-reset">
+            <legend>Daromad holati</legend>
+            <div class="radio-grid">
+              <label class="radio-card selected" id="stable-card">
+                <input type="radio" name="stability" value="stable" checked />
+                <span><b>Doimiy</b><small>Rasmiy yoki muntazam daromad</small></span>
+              </label>
+              <label class="radio-card" id="irregular-card">
+                <input type="radio" name="stability" value="irregular" />
+                <span><b>O‘zgaruvchan</b><small>Doimiy emas, natura/valyuta yoki rasmiy daromad yo‘q</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="primary-button" type="submit">Hisoblash</button>
+        </form>
+      </div>
+
+      <aside class="result-card" aria-live="polite">
+        <div class="result-label">Taxminiy oylik aliment</div>
+        <div class="result-amount" id="result-amount">—</div>
+        <div class="result-caption" id="result-caption">Hisoblash uchun ma’lumotlarni kiriting</div>
+        <div class="result-grid" id="result-grid" hidden>
+          <div><span>Qonundagi ulush</span><b id="rate-label">—</b></div>
+          <div><span>Ulush bo‘yicha</span><b id="share-amount">—</b></div>
+          <div><span>Har bir bolaga minimum</span><b id="minimum-child">—</b></div>
+          <div><span>Har bir bolaga taxminan</span><b id="per-child">—</b></div>
+        </div>
+        <div class="notice notice-amber" id="minimum-notice" hidden>
+          <b>Minimum chegara qo‘llandi.</b>
+          <span id="minimum-notice-text"></span>
+        </div>
+        <div class="notice" id="irregular-notice" hidden>
+          <b>Qat’iy summa belgilanishi mumkin.</b>
+          <span>Daromad o‘zgaruvchan, natura/chet el valyutasida bo‘lsa yoki rasmiy daromad bo‘lmasa, sud Oila kodeksining 102-moddasiga ko‘ra alimentni qat’iy summada belgilashi mumkin.</span>
+        </div>
+        <div class="minimum-box">
+          <span>2026-yil sentabr holatida MHTEKM</span>
+          <b>1 271 000 so‘m</b>
+          <small>26,5% = 336 815 so‘m / har bir bola</small>
+        </div>
+      </aside>
+    </section>
+
+    <section class="legal-section">
+      <div class="section-heading">
+        <div class="eyebrow"><span></span> Huquqiy asos</div>
+        <h2>Hisob qanday ishlaydi?</h2>
+        <p>Kalkulyator O‘zbekiston Respublikasi Oila kodeksining voyaga yetmagan bolalar ta’minotiga oid umumiy qoidalarini qo‘llaydi.</p>
+      </div>
+      <div class="law-grid">
+        <article class="law-card featured"><span class="law-number">99-modda</span><h3>Daromaddan ulush</h3><p>Kelishuv bo‘lmasa, sud odatda bir bola uchun 1/4, ikki bola uchun 1/3, uch va undan ortiq bola uchun 1/2 miqdorida aliment undiradi.</p></article>
+        <article class="law-card"><span class="law-number">99-modda</span><h3>Eng kam miqdor</h3><p>Har bir bola uchun aliment MHTEKMning 26,5 foizidan kam bo‘lmasligi kerak. 2026-yil sentabr holatida bu 336 815 so‘m.</p></article>
+        <article class="law-card"><span class="law-number">102-modda</span><h3>Qat’iy summa</h3><p>Daromad o‘zgaruvchan, natura/chet el valyutasida yoki rasman belgilanmagan bo‘lsa, sud oylik qat’iy pul summasini belgilashi mumkin.</p></article>
+        <article class="law-card"><span class="law-number">104-modda</span><h3>Qaysi daromadlar?</h3><p>Aliment O‘zbekiston ichida yoki tashqarisida pul va natura shaklida olingan barcha turdagi daromadlardan ushlab qolinadi.</p></article>
+        <article class="law-card"><span class="law-number">105-modda</span><h3>Sud kamaytirishi mumkin</h3><p>Boshqa voyaga yetmagan bolalar, to‘lovchining nogironligi va og‘ir moddiy holati yoki aliment oluvchining mustaqil daromadi kabi holatlar sud tomonidan hisobga olinishi mumkin.</p></article>
+        <article class="law-card"><span class="law-number">103-modda</span><h3>Qo‘shimcha xarajatlar</h3><p>Bolaning og‘ir shikastlanishi yoki kasalligi kabi favqulodda holatlardagi zarur xarajatlar oddiy alimentdan alohida masala bo‘lishi mumkin.</p></article>
+      </div>
+      <div class="source-row">
+        <a href="https://lex.uz/docs/-104720?ONDATE=12.09.2026%2002" target="_blank" rel="noreferrer">Oila kodeksi — Lex.uz ↗</a>
+        <a href="https://gov.uz/oz/advice/NaN/document/2099" target="_blank" rel="noreferrer">Amaldagi MHTEKM — gov.uz ↗</a>
+      </div>
+    </section>
+
+    <section class="disclaimer">
+      <div class="disclaimer-icon" aria-hidden="true">i</div>
+      <div><h2>Muhim</h2><p>Bu kalkulyator ma’lumot berish uchun mo‘ljallangan va sud qarorini almashtirmaydi. Sud taraflarning moddiy va oilaviy ahvoli hamda boshqa e’tiborga loyiq holatlardan kelib chiqib miqdorni o‘zgartirishi mumkin. Notarial kelishuv yoki amaldagi sud hujjati mavjud bo‘lsa, aynan o‘sha hujjatdagi tartib ustuvor hisoblanadi.</p></div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading compact"><div class="eyebrow"><span></span> Qisqa javoblar</div><h2>Ko‘p so‘raladigan savollar</h2></div>
+      <div class="faq-list">
+        <details><summary>Bir bola uchun aliment qancha?<span>+</span></summary><p>Umumiy qoida bo‘yicha oylik ish haqi va boshqa daromadning 1/4 qismi. Har bir bola uchun miqdor MHTEKMning 26,5 foizidan kam bo‘lmasligi kerak.</p></details>
+        <details><summary>Ikki bola uchun aliment qancha?<span>+</span></summary><p>Umumiy qoida bo‘yicha oylik ish haqi va boshqa daromadning 1/3 qismi.</p></details>
+        <details><summary>Uch yoki undan ortiq bola uchun-chi?<span>+</span></summary><p>Umumiy qoida bo‘yicha oylik ish haqi va boshqa daromadning 1/2 qismi.</p></details>
+        <details><summary>Rasmiy ish joyi bo‘lmasa nima bo‘ladi?<span>+</span></summary><p>Daromad doimiy bo‘lmasa, natura yoki chet el valyutasida olinsa yoxud rasmiy daromad bo‘lmasa, sud alimentni har oy to‘lanadigan qat’iy summada belgilashi mumkin.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer><div><b>Yuristim Xizmatlar</b><span>Oddiy huquqiy masalalar uchun sodda vositalar.</span></div><span>© 2026 Yuristim</span></footer>
+</body>
+</html>
