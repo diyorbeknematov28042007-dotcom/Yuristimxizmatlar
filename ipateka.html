@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#00875A" />
+  <title>Ipoteka kalkulyatori | Yuristim Xizmatlar</title>
+  <meta name="description" content="Uy narxi, boshlang‘ich badal, foiz stavkasi va muddat bo‘yicha ipoteka to‘lovlarini bepul hisoblang. Annuitet va differensial usullar." />
+  <link rel="canonical" href="https://xizmatlar.yuristim.uz/ipateka" />
+  <meta property="og:title" content="Ipoteka kalkulyatori — Yuristim Xizmatlar" />
+  <meta property="og:description" content="Oylik to‘lov, jami foiz va kreditning umumiy qiymatini bir necha soniyada hisoblang." />
+  <meta property="og:url" content="https://xizmatlar.yuristim.uz/ipateka" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/ipateka.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Ipoteka oylik to‘lovi qanday hisoblanadi?","acceptedAnswer":{"@type":"Answer","text":"Oylik to‘lov kredit summasi, yillik foiz stavkasi, muddat va to‘lov usuliga bog‘liq. Annuitetda oylik to‘lov odatda bir xil, differensial usulda esa dastlab ko‘proq bo‘lib, vaqt o‘tishi bilan kamayadi."}},
+      {"@type":"Question","name":"Boshlang‘ich badal qancha bo‘lishi kerak?","acceptedAnswer":{"@type":"Answer","text":"Aniq boshlang‘ich badal bank va kredit mahsulotiga bog‘liq. Kalkulyator bank talabini belgilamaydi; foydalanuvchi o‘z shartini foizda kiritadi."}},
+      {"@type":"Question","name":"2026-yilda ipoteka subsidiyasi bormi?","acceptedAnswer":{"@type":"Answer","text":"Ha. 2026-yilgi davlat dasturi doirasida ipoteka subsidiyalari uchun maqsadli ko‘rsatkichlar tasdiqlangan. Arizalar tasdiqlangan parametrlar doirasida 16-martdan 1-dekabrgacha qabul qilinadi."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Yuristim Xizmatlar bosh sahifasi">
+      <span class="brand-mark">Y</span><span><b>Yuristim</b><small>Xizmatlar</small></span>
+    </a>
+    <a class="header-link" href="https://yuristim.uz">Yuristimga o‘tish <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="page-wrap">
+    <section class="hero">
+      <div class="eyebrow"><span></span> Kredit hisob-kitobi</div>
+      <h1>Ipoteka <em>kalkulyatori</em></h1>
+      <p>Uy narxi, boshlang‘ich badal, yillik foiz va muddatni kiriting. Oylik to‘lov, jami foiz va kreditning umumiy qiymatini hisoblang.</p>
+      <div class="hero-meta"><span>✓ Bepul</span><span>✓ Ro‘yxatdan o‘tishsiz</span><span>✓ Ma’lumot saqlanmaydi</span></div>
+    </section>
+
+    <section class="calculator-shell" aria-labelledby="calculator-title">
+      <div class="calculator-card">
+        <div class="card-kicker">Bankka bog‘lanmagan • Erkin hisob</div>
+        <h2 id="calculator-title">Ipotekani hisoblang</h2>
+        <p class="card-lead">Bank shartlari turlicha. Quyidagi qiymatlarni o‘zingiz olmoqchi bo‘lgan kredit shartlariga mos kiriting.</p>
+
+        <form id="ipateka-form" class="calculator-form">
+          <label class="field">
+            <span>Uy narxi</span>
+            <div class="money-input">
+              <input id="home-price" inputmode="numeric" autocomplete="off" value="500 000 000" placeholder="500 000 000" />
+              <span>so‘m</span>
+            </div>
+          </label>
+
+          <div class="preset-row" aria-label="Uy narxi namunalar">
+            <button type="button" class="preset" data-price="300000000">300 mln</button>
+            <button type="button" class="preset" data-price="500000000">500 mln</button>
+            <button type="button" class="preset" data-price="700000000">700 mln</button>
+            <button type="button" class="preset" data-price="1000000000">1 mlrd</button>
+          </div>
+
+          <div class="dual-field">
+            <label class="field">
+              <span>Boshlang‘ich badal</span>
+              <div class="money-input compact-input">
+                <input id="down-payment" inputmode="decimal" autocomplete="off" value="15" min="0" max="99" />
+                <span>%</span>
+              </div>
+              <small id="down-payment-sum">—</small>
+            </label>
+            <label class="field">
+              <span>Yillik foiz stavkasi</span>
+              <div class="money-input compact-input">
+                <input id="interest-rate" inputmode="decimal" autocomplete="off" value="17" min="0" max="100" />
+                <span>%</span>
+              </div>
+              <small>Bank shartnomasidagi nominal stavkani kiriting.</small>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Kredit muddati</span>
+            <div class="range-head"><b id="term-label">20 yil</b><span id="term-months">240 oy</span></div>
+            <input id="term" class="range-input" type="range" min="1" max="30" value="20" step="1" />
+            <div class="range-scale"><span>1 yil</span><span>30 yil</span></div>
+          </label>
+
+          <fieldset class="field fieldset-reset">
+            <legend>To‘lov usuli</legend>
+            <div class="radio-grid">
+              <label class="radio-card selected" id="annuity-card">
+                <input type="radio" name="payment-method" value="annuity" checked />
+                <span><b>Annuitet</b><small>Oylik to‘lov deyarli bir xil bo‘ladi</small></span>
+              </label>
+              <label class="radio-card" id="differentiated-card">
+                <input type="radio" name="payment-method" value="differentiated" />
+                <span><b>Differensial</b><small>To‘lov oyma-oy kamayib boradi</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="primary-button" type="submit">Hisoblash</button>
+        </form>
+      </div>
+
+      <aside class="result-card" aria-live="polite">
+        <div class="result-label" id="main-result-label">Taxminiy oylik to‘lov</div>
+        <div class="result-amount" id="monthly-payment">—</div>
+        <div class="result-caption" id="payment-caption">Kredit shartlarini kiriting</div>
+
+        <div class="result-grid" id="mortgage-result-grid">
+          <div><span>Kredit summasi</span><b id="loan-amount">—</b></div>
+          <div><span>Boshlang‘ich badal</span><b id="down-payment-result">—</b></div>
+          <div><span>Jami foiz</span><b id="total-interest">—</b></div>
+          <div><span>Bankka jami to‘lov</span><b id="total-payment">—</b></div>
+        </div>
+
+        <div class="notice" id="method-notice">
+          <b id="method-title">Annuitet usuli</b>
+          <span id="method-text">Oylik to‘lov bir xil saqlanadi, lekin dastlabki davrda to‘lovning kattaroq qismi foizga yo‘naltiriladi.</span>
+        </div>
+
+        <div class="minimum-box">
+          <span>Uy uchun jami xarajat</span>
+          <b id="overall-cost">—</b>
+          <small>Boshlang‘ich badal + bankka jami to‘lov. Sug‘urta, baholash, notarial va boshqa qo‘shimcha xarajatlar kiritilmagan.</small>
+        </div>
+      </aside>
+    </section>
+
+    <section class="legal-section">
+      <div class="section-heading">
+        <div class="eyebrow"><span></span> 2026-yil ipoteka dasturi</div>
+        <h2>Davlat subsidiyasi haqida</h2>
+        <p>Quyidagi ma’lumotlar 2026-yil sentabr holatidagi rasmiy manbalarga asoslanadi. Subsidiya avtomatik berilmaydi: talabgor ijtimoiy mezonlar va bankning kredit talablari bo‘yicha alohida baholanadi.</p>
+      </div>
+
+      <div class="law-grid">
+        <article class="law-card featured"><span class="law-number">PF–29</span><h3>2026-yil dasturi</h3><p>2026-yilda ipoteka kreditlari bo‘yicha jami 30 000 ta subsidiya uchun 2,7015 trln so‘mlik maqsadli ko‘rsatkich tasdiqlangan.</p></article>
+        <article class="law-card"><span class="law-number">16.03–01.12</span><h3>Ariza muddati</h3><p>PF–29 bo‘yicha subsidiya arizalari tasdiqlangan parametrlar doirasida 16-martdan 1-dekabrgacha qabul qilinadi.</p></article>
+        <article class="law-card"><span class="law-number">Daromad mezoni</span><h3>Viloyatlar</h3><p>Qoraqalpog‘iston Respublikasi va viloyatlarda o‘rtacha oylik daromad MHTEKMning 2,7–8 baravari oralig‘ida bo‘lishi talab etiladi.</p></article>
+        <article class="law-card"><span class="law-number">Daromad mezoni</span><h3>Toshkent shahri</h3><p>Toshkent shahrida o‘rtacha oylik daromad MHTEKMning 2,7–9,2 baravari oralig‘ida bo‘lishi talab etiladi.</p></article>
+        <article class="law-card"><span class="law-number">MyGov</span><h3>Qayerdan ariza beriladi?</h3><p>Arizani Davlat xizmatlari markazi, MyGov portali yoki MyGov mobil ilovasi orqali topshirish mumkin.</p></article>
+        <article class="law-card"><span class="law-number">2026</span><h3>Maqsadli ipoteka omonati</h3><p>1-iyuldan subsidiya xabarnomasiga ega fuqarolar uchun boshlang‘ich badalni shakllantirishga mo‘ljallangan maqsadli ipoteka omonati mexanizmi joriy etilgan.</p></article>
+      </div>
+
+      <div class="source-row">
+        <a href="https://lex.uz/docs/-8072219" target="_blank" rel="noreferrer">PF–29 — Lex.uz ↗</a>
+        <a href="https://my.gov.uz/uz/service/325/" target="_blank" rel="noreferrer">Subsidiya arizasi — MyGov ↗</a>
+        <a href="https://gov.uz/oz/advice/59/document/2301" target="_blank" rel="noreferrer">Subsidiya tartibi — Gov.uz ↗</a>
+      </div>
+    </section>
+
+    <section class="disclaimer">
+      <div class="disclaimer-icon" aria-hidden="true">i</div>
+      <div><h2>Muhim</h2><p>Kalkulyator taxminiy moliyaviy hisob-kitob beradi. U bankning kredit qarori, individual grafik, effektiv foiz stavkasi yoki subsidiya olish huquqini belgilamaydi. Bank komissiyasi, sug‘urta, baholash, notarial xarajatlar, imtiyozli davr va stavka o‘zgarishi natijani o‘zgartirishi mumkin. Kredit olishdan oldin bankning yakuniy to‘lov jadvalini tekshiring.</p></div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading compact"><div class="eyebrow"><span></span> Qisqa javoblar</div><h2>Ko‘p so‘raladigan savollar</h2></div>
+      <div class="faq-list">
+        <details><summary>Annuitet va differensial to‘lovning farqi nima?<span>+</span></summary><p>Annuitetda oylik to‘lov deyarli bir xil. Differensial usulda asosiy qarz teng qismlarga bo‘linadi va foiz qarz qoldig‘iga hisoblangani uchun dastlabki to‘lov yuqori, keyingi to‘lovlar esa pasayib boradi.</p></details>
+        <details><summary>Boshlang‘ich badalni qancha kiritishim kerak?<span>+</span></summary><p>Bu bank va kredit mahsulotiga bog‘liq. Kalkulyatorda bank taklifidagi foizni kiriting; natija shu qiymat asosida qayta hisoblanadi.</p></details>
+        <details><summary>Kalkulyator effektiv foiz stavkasini hisoblaydimi?<span>+</span></summary><p>Yo‘q. Hozirgi hisob nominal yillik stavka asosida ishlaydi. Komissiya, sug‘urta va boshqa majburiy xarajatlar bo‘lsa, kreditning real qiymati yuqoriroq bo‘lishi mumkin.</p></details>
+        <details><summary>Subsidiya olsam kalkulyatordagi natija qanday o‘zgaradi?<span>+</span></summary><p>Subsidiya boshlang‘ich badal yoki foiz xarajatlarining bir qismini qoplashi mumkin. Aniq miqdor va qo‘llash tartibi individual holatga bog‘liq bo‘lgani uchun bu kalkulyator subsidiyani avtomatik hisoblamaydi.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer><div><b>Yuristim Xizmatlar</b><span>Oddiy huquqiy va moliyaviy masalalar uchun sodda vositalar.</span></div><span>© 2026 Yuristim</span></footer>
+</body>
+</html>
