@@ -45,3 +45,18 @@ Manbalar:
 - https://lex.uz/docs/-8072219
 - https://my.gov.uz/uz/service/325/
 - https://gov.uz/oz/advice/59/document/2301
+
+
+## Top 10 yangi xizmatlar — 2026-09-25
+- /davlat-boji — Davlat boji
+- /tatil-puli — Ta’til puli
+- /ishdan-boshash — Ishdan bo‘shash
+- /penya — Penya
+- /meros — Meros ulushi
+- /kredit — Kredit
+- /ish-haqi — Net / Gross
+- /aliment-qarzi — Aliment qarzi
+- /ijara — Ijara xarajati
+- /sud-muddati — Sud muddati
+
+Barcha yangi xizmatlar client-side ishlaydi. Auth, database va backend talab qilmaydi. Huquqiy stavka yoki formula mavjud bo‘lgan sahifalarda Lex.uz, Gov.uz yoki CBU rasmiy manbalari ko‘rsatilgan.
