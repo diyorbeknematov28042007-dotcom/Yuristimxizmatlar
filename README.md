@@ -1,6 +1,6 @@
 # Yuristim Xizmatlar
 
-xizmatlar.yuristim.uz uchun ro‘yxatdan o‘tishsiz ishlaydigan lightweight yuridik vositalar.
+xizmatlar.yuristim.pp.ua uchun ro‘yxatdan o‘tishsiz ishlaydigan lightweight yuridik vositalar.
 
 ## Hozirgi sahifalar
 
@@ -60,3 +60,10 @@ Manbalar:
 - /sud-muddati — Sud muddati
 
 Barcha yangi xizmatlar client-side ishlaydi. Auth, database va backend talab qilmaydi. Huquqiy stavka yoki formula mavjud bo‘lgan sahifalarda Lex.uz, Gov.uz yoki CBU rasmiy manbalari ko‘rsatilgan.
+
+
+## Foydalanish shartlari
+
+- /foydalanish-shartlari — barcha bepul utility xizmatlari uchun Terms of Use + qat’iy disclaimer + privacy notice.
+- Version: 1.0 (2026-09-25)
+- Production canonical domain: https://xizmatlar.yuristim.pp.ua
